@@ -10,7 +10,8 @@ namespace Commander.Data
 
         }
 
-        public DbSet<Command> Commands {get; set;}
+        public DbSet<Command> Commands { get; set; }
+        public DbSet<Video> Videos { get; set; }
     }
 
 }

@@ -36,6 +36,7 @@ namespace Commander
             //services.AddScoped<ICommanderRepo, MockCommanderRepo>();
 
             services.AddScoped<ICommanderRepo, SqlCommanderRepo>();
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
             services.AddSwaggerGen(c =>
             {
