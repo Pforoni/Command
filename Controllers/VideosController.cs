@@ -1,8 +1,10 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using AutoMapper;
 using Commander.Data;
 using Commander.Dtos;
 using Commander.Models;
+using Commander.Services;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,23 +15,37 @@ namespace Commander.Controllers
     [ApiController]
     public class VideosController : ControllerBase
     {
-        private readonly IRepository<Video> _repository;
-        private readonly IMapper _mapper;
+        private readonly IVideoService _videoService;
 
-        public VideosController(IRepository<Video> repository, IMapper mapper)
+        public VideosController(IVideoService videoService)
         {
-            _repository = repository;
-            _mapper = mapper;
-
+            _videoService = videoService;
         }
 
         //GET api/videos
         [HttpGet]
-        public ActionResult<IEnumerable<CommandReadDto>> GetAllVideos()
+        public ActionResult<IEnumerable<Video>> GetAllVideos()
         {
-            var videosItems = _repository.GetAll();
+            var videosItems = _videoService.GetAllVideos();
 
             return Ok(videosItems);
+        }
+
+
+        //GET api/videos/getVideoData
+        [HttpGet("getVideoData")]
+        public IEnumerable<string> GetVideoData()
+        {
+            var video = _videoService.GetVideoData();
+            return video;
+        }
+
+        //POST api/videos
+        [HttpPost]
+        public async Task CreateVideo(Video video)
+        {
+            await _videoService.CreateVideo(video);
+        
         }
 
     }

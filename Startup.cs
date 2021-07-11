@@ -1,11 +1,13 @@
 using System;
 using Commander.Data;
+using Commander.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json.Serialization;
 
@@ -24,6 +26,15 @@ namespace Commander
         {
             services.AddDbContext<CommanderContext>(opt => opt.UseSqlServer
                 (Configuration.GetConnectionString("commanderConnection")));
+
+            services.Configure<MongoDbSettings>(Configuration.GetSection("MongoDbSettings"));
+
+            services.AddSingleton<IMongoDbSettings>(serviceProvider =>
+                serviceProvider.GetRequiredService<IOptions<MongoDbSettings>>().Value);
+
+            services.AddScoped(typeof(IMongoRepository<>), typeof(MongoRepository<>));
+
+            services.AddTransient<IVideoService, VideoService>();
 
             services.AddControllers().AddNewtonsoftJson(s =>
             {

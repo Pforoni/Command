@@ -1,14 +1,12 @@
 using System.ComponentModel.DataAnnotations;
+using Commander.Data;
 
 namespace Commander.Models
 {
-    public class Video
+    [BsonCollection("video")]
+    public class Video : Document
     {
-        [Key]
-        public int Id { get; set; }
-
-        [Required]
-        [MaxLength(250)]
+        [Required]       
         public string VideoName { get; set; }
 
         [Required]
