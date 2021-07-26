@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Commander.Models;
@@ -8,7 +9,8 @@ namespace Commander.Services
     {
         IEnumerable<Video> GetAllVideos();
         IEnumerable<string> GetVideoData();
-        Task CreateVideo(Video video);
+        Task<Video> CreateVideo(Video video);
+        Task<Video> GetVideoById(string id);
 
     }
 }

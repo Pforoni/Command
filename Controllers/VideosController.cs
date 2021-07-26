@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -40,12 +41,20 @@ namespace Commander.Controllers
             return video;
         }
 
+        //GET api/videos/{id}
+        [HttpGet("{id}", Name = "GetVideobyId")]
+        public async Task<ActionResult<Video>> GetVideobyId(string Id)
+        {
+            var video = await _videoService.GetVideoById(Id);
+            return video;
+        }
+
         //POST api/videos
         [HttpPost]
-        public async Task CreateVideo(Video video)
+        public async Task<ActionResult<Video>> CreateVideo(Video video)
         {
-            await _videoService.CreateVideo(video);
-        
+            var videoAdd = await _videoService.CreateVideo(video);
+            return CreatedAtRoute(nameof(GetVideobyId), new { Id = videoAdd.Id }, videoAdd);
         }
 
     }

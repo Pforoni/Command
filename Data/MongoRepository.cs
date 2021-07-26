@@ -31,6 +31,7 @@ namespace Commander.Data
         public virtual IQueryable<TDocument> AsQueryable()
         {
             return _collection.AsQueryable();
+            
         }
 
         public virtual IEnumerable<TDocument> FilterBy(
