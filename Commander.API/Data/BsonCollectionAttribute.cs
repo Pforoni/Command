@@ -1,6 +1,6 @@
 using System;
 
-namespace Commander.Data
+namespace Commander.API.Data
 {
     [AttributeUsage(AttributeTargets.Class, Inherited = false)]
     public class BsonCollectionAttribute : Attribute

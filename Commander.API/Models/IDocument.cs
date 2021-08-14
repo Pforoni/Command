@@ -3,7 +3,7 @@ using System;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace Commander.Models
+namespace Commander.API.Models
 {
     public interface IDocument
     {

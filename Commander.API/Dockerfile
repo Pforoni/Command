@@ -6,22 +6,22 @@ ENV ASPNETCORE_URLS=http://+:80
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["Commander.csproj", "./"]
-RUN dotnet restore "Commander.csproj"
+COPY ["Commander.API.csproj", "./"]
+RUN dotnet restore "Commander.API.csproj"
 COPY . .
 # WORKDIR "/src/."
-# RUN dotnet build "Commander.csproj" -c Release -o /app/build
+# RUN dotnet build "Commander.API.csproj" -c Release -o /app/build
 
 # FROM build AS publish
-RUN dotnet publish "Commander.csproj" -c Release -o /app/publish
+RUN dotnet publish "Commander.API.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=build /app/publish .
-ENTRYPOINT ["dotnet", "Commander.dll"]
+ENTRYPOINT ["dotnet", "Commander.API.dll"]
 
 #Construir a imagem:
-#docker build -t commander:v1 .
+#docker build -t pforoni/commander:v3 .
 
 #Criar rede docker
 #docker network create <name>

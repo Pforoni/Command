@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using Commander.Models;
+using Commander.API.Models;
 
-namespace Commander.Data
+namespace Commander.API.Data
 {
     public interface IMongoRepository<TDocument> where TDocument : IDocument
     {

@@ -2,8 +2,8 @@ using System;
 using System.Linq;
 using System.Net.Mime;
 using System.Text.Json;
-using Commander.Data;
-using Commander.Services;
+using Commander.API.Data;
+using Commander.API.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
@@ -20,7 +20,7 @@ using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
 using Newtonsoft.Json.Serialization;
 
-namespace Commander
+namespace Commander.API
 {
     public class Startup
     {

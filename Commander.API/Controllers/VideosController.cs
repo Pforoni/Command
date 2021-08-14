@@ -2,14 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
-using Commander.Data;
-using Commander.Dtos;
-using Commander.Models;
-using Commander.Services;
+using Commander.API.Data;
+using Commander.API.Dtos;
+using Commander.API.Models;
+using Commander.API.Services;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Commander.Controllers
+namespace Commander.API.Controllers
 {
     //api/videos
     [Route("api/videos")]

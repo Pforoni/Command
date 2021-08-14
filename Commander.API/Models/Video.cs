@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
-using Commander.Data;
+using Commander.API.Data;
 
-namespace Commander.Models
+namespace Commander.API.Models
 {
     [BsonCollection("video")]
     public class Video : Document

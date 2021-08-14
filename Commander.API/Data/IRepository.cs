@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Commander.Data
+namespace Commander.API.Data
 {
     public interface IRepository<T> where T: class
     {

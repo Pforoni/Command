@@ -1,7 +1,7 @@
 using System;
 using MongoDB.Bson;
 
-namespace Commander.Models
+namespace Commander.API.Models
 {
     public abstract class Document : IDocument
     {

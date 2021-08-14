@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Commander.Models;
+using Commander.API.Models;
 
-namespace Commander.Services
+namespace Commander.API.Services
 {
     public interface IVideoService
     {

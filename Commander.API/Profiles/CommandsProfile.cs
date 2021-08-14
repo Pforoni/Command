@@ -1,8 +1,8 @@
 using AutoMapper;
-using Commander.Dtos;
-using Commander.Models;
+using Commander.API.Dtos;
+using Commander.API.Models;
 
-namespace Commander.Profiles
+namespace Commander.API.Profiles
 {
     public class CommandsProfile : Profile
     {

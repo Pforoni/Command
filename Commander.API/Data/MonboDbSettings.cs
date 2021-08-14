@@ -1,4 +1,4 @@
-namespace Commander.Data
+namespace Commander.API.Data
 {
     public interface IMongoDbSettings
     {
