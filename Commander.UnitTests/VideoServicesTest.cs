@@ -3,12 +3,12 @@ using Xunit;
 
 namespace Commander.UnitTests
 {
-    public class UnitTest1
+    public class VideoServicesTest
     {
         [Fact]
         public void Test1()
         {
-
+            
         }
     }
 }

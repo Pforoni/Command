@@ -46,6 +46,12 @@ namespace Commander.API.Controllers
         public async Task<ActionResult<Video>> GetVideobyId(string Id)
         {
             var video = await _videoService.GetVideoById(Id);
+
+            if (video is null)
+            {
+                return NotFound();
+            }
+
             return video;
         }
 
